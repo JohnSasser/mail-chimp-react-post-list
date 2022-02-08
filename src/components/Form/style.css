@@ -1,0 +1,16 @@
+ #form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0em 2em 2em;
+ }
+ 
+ .container > label {
+    justify-content: center;
+      margin: 0 auto;
+ }
+
+@media screen and (max-width: 797px) {
+   #form-containter {
+      width: 100vw;
+   }
+}

@@ -1,0 +1,15 @@
+#comments-container {
+    padding: 0 2em 2em 2em;
+}
+
+.title-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 797px) {
+    #comments-containter {
+       width: 100vw;
+    }
+ }

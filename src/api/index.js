@@ -1,9 +1,9 @@
 export const Api = {
-  call(url, method, body = {}) {
+  CALL(url, method, body = {}) {
     const data = {
       method,
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     };
@@ -15,15 +15,16 @@ export const Api = {
     });
   },
 
-  get(url) {
+  GET(url) {
     return this.call(url, 'get');
   },
 
-  post(url, body = {}) {
+  POST(url, body = {}) {
+    console.log(`url: ${url} || body: ${JSON.stringify(body)}`);
     return this.call(url, 'post', body);
   },
 
-  delete(url) {
+  DELETE(url) {
     return this.call(url, 'delete');
   },
 };

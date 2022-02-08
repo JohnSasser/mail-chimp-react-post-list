@@ -1,0 +1,10 @@
+.navbar-dark {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 10vh;
+}
+ /*
+.navbar-dark > h2 {
+    margin-left: 6%;
+} */

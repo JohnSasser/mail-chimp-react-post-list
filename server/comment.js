@@ -19,17 +19,22 @@ class Comment {
   }
 
   createComment({ name, message }) {
+    console.log(`name: ${name} || message: ${message}`);
     return this.dataAccessObject.run(
       'INSERT INTO comments (name, message) VALUES (?, ?)',
       [name, message]
     );
   }
 
+  deleteCommentByID(id) {
+    // console.log('id in deleteCommentByID function(): ', id);
+    return this.dataAccessObject.run('DELETE FROM comments WHERE id = ?', [id]);
+  }
+
   getComment(id) {
-    return this.dataAccessObject.get(
-      'SELECT * FROM comments WHERE id = ?',
-      [id]
-    );
+    return this.dataAccessObject.get('SELECT * FROM comments WHERE id = ?', [
+      id,
+    ]);
   }
 
   getComments() {
