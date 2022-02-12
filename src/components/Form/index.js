@@ -24,9 +24,17 @@ const FormComponent = props => {
 
   return (
     <>
-      <form className="container" id="form-container" onSubmit={formSubmittal}>
+      <form
+        className="container needs-validation"
+        id="form-container"
+        onSubmit={formSubmittal}
+      >
         <div className="mb-3">
-          <label htmlFor="exampleFormControlInput1" className="form-label">
+          <label
+            htmlFor="exampleFormControlInput1"
+            className="form-label"
+            id="validationDefaultUsername"
+          >
             Name
           </label>
           <input
@@ -35,6 +43,7 @@ const FormComponent = props => {
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="name"
+            required
           ></input>
         </div>
         <div className="mb-3">
@@ -47,6 +56,7 @@ const FormComponent = props => {
             id="exampleFormControlTextarea1"
             placeholder="message"
             rows="8"
+            required
           ></textarea>
           <button type="submit" className="btn btn-warning mt-3 mb-6">
             Post

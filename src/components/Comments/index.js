@@ -71,7 +71,7 @@ const Comments = props => {
               /> */}
                   <div className="card-body">
                     <div
-                      className="itsArow"
+                      className="title-row"
                       style={{
                         display: 'flex',
                         flexWrap: 'wrap',
