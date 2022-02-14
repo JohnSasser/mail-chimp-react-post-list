@@ -7,22 +7,20 @@ function Navbar(props) {
   console.log('searchbarInput: ', searchbarInput);
 
   const search = () => {
-    let commentedUsers = props.comments.map(j =>
-      typeof j.name === 'string' ? j.name : null
+    let usersArray = props.comments.map(j =>
+      typeof j.name === 'string' ? j.name.toLowerCase() : null
     );
 
-    console.log('commentedUsers: ', commentedUsers);
+    let filteredComments = usersArray.filter(x => {
+      console.log(x.includes(searchbarInput));
+      if (x.includes(searchbarInput.toLowerCase())) {
+        return x;
+      } else return;
+    });
 
-    // const filteredComments = commentedUsers.filter(
-    //   x => x.name.includes(searchbarInput)
-    // );
-
-    let filteredComments = commentedUsers.filter(x =>
-      x.includes(searchbarInput)
-    );
+    props.setFilteredComments(filteredComments);
 
     console.log('filteredComments', filteredComments);
-    // props.setFilteredComments(filteredComments);
   };
 
   useEffect(() => {
