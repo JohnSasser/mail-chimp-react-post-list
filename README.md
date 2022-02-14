@@ -1,3 +1,19 @@
+## get running locally 
+  - fork repo and pull down into a directory where you deem on your machine;
+
+  - cd into the root of the project and run an " npm install ";
+  - cd into the server and run " node index.js " or " nodemon index.js ";
+  - open 2nd terminal and cd into root of the app, run " npm start ";
+
+
+  * read through any possible err in the terminal and rerun install command for missing package.  * sometime package.json does not get everything (someone left out a dependancy or something);
+
+
+
+  ## work in progress so feel free to add features or changes after reachning out, thanks! 
+
+
+
 # Front-end Choose Your Own Adventure Take-Home
 
 Design and build a comments feed that displays all comments and notifies a user in real-time when new comments are added.
