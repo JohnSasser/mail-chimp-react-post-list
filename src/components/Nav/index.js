@@ -4,23 +4,19 @@ import './style.css';
 function Navbar(props) {
   const [searchbarInput, setSearchbarInput] = useState('');
 
-  console.log('searchbarInput: ', searchbarInput);
-
   const search = () => {
+    // FILTER ARRAY OF NAMES FROM POSTED COMMENTS **BY** VALUE IN SEARCH-BAR, UPDATE GLOBAL STATE OF FILTEREDCOMMENTS;
     let usersArray = props.comments.map(j =>
       typeof j.name === 'string' ? j.name.toLowerCase() : null
     );
 
     let filteredComments = usersArray.filter(x => {
-      console.log(x.includes(searchbarInput));
       if (x.includes(searchbarInput.toLowerCase())) {
         return x;
       } else return;
     });
 
     props.setFilteredComments(filteredComments);
-
-    console.log('filteredComments', filteredComments);
   };
 
   useEffect(() => {
