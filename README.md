@@ -12,7 +12,7 @@
 
   ## work in progress so feel free to add features or changes after reachning out, thanks! 
 
-
+ <img src="./comment-board.jpg">
 
 # Front-end Choose Your Own Adventure Take-Home
 
