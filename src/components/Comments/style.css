@@ -8,6 +8,8 @@
     justify-content: space-between;
 }
 
+
+
 @media screen and (max-width: 797px) {
     #comments-containter {
        width: 100vw;

@@ -5,13 +5,12 @@ import axios from 'axios';
 const Comments = props => {
   useEffect(() => {
     commentsAPI();
-    // randomUserAPI(props.comments.length);
 
     if (props.formToggle) {
       commentsAPI();
       props.setFormToggle(false);
     }
-  }, [props.formToggle]);
+  }, [props.formToggle, props.filteredComments]);
 
   const commentsAPI = () => {
     axios
@@ -22,7 +21,7 @@ const Comments = props => {
       .catch(err => console.log(err));
   };
 
-  const deleteComment = id => {
+  const deleteCommentByID = id => {
     axios.delete(`/deleteCommentByID/${id}`).catch(err => console.log(err));
 
     commentsAPI();
@@ -59,39 +58,44 @@ const Comments = props => {
 
   return (
     <div className="container" id="comments-container">
-      {props.filteredComments > 0
-        ? props.filteredComments.map((comment, idx) => {
-            if (comment.name) {
-              return (
-                <div key={idx} className="card" style={{ marginTop: '1.5em' }}>
-                  {/* <img
+      {props.filteredComments.length > 0
+        ? // {console.log(props.filteredComments.length > 0 ? true : false)
+          props.comments.map((comment, idx) => {
+            let user = comment.name.toLowerCase();
+            for (let i = 0; i < props.filteredComments.length; i++) {
+              console.log();
+              if (user == props.filteredComments[i]) {
+                return (
+                  <div
+                    key={idx}
+                    className="card"
+                    style={{ marginTop: '1.5em' }}
+                  >
+                    {/* <img
                 className="card-img-top"
                 src={comment.image}
                 alt="user headshot"
               /> */}
-                  <div className="card-body">
-                    <div
-                      className="itsArow"
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'space-between',
-                      }}
-                    >
-                      <h5 className="card-title">{comment.name}</h5>
-                      <button
-                        onClick={() => deleteComment(comment.id)}
-                        type="button"
-                        className="btn btn-outline-dark btn-sm"
-                      >
-                        X
-                      </button>
+                    <div className="card-body">
+                      <div className="title-row">
+                        {' '}
+                        fight title
+                        <h5 className="card-title">{comment.name}</h5>
+                        <button
+                          onClick={() => deleteCommentByID(comment.id)}
+                          type="button"
+                          className="btn btn-outline-dark btn-sm"
+                        >
+                          X
+                        </button>
+                      </div>
+                      <p className="card-text">{comment.message}</p>
                     </div>
-                    <p className="card-text">{comment.message}</p>
                   </div>
-                </div>
-              );
+                );
+              }
             }
+
             return null;
           })
         : props.comments.map((comment, idx) => {
@@ -105,9 +109,10 @@ const Comments = props => {
             /> */}
                   <div className="card-body">
                     <div className="title-row">
+                      title fight
                       <h5 className="card-title">{comment.name}</h5>
                       <button
-                        onClick={() => deleteComment(comment.id)}
+                        onClick={() => deleteCommentByID(comment.id)}
                         type="button"
                         className="btn btn-outline-dark btn-sm"
                       >

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 
 function Navbar(props) {
@@ -7,20 +7,25 @@ function Navbar(props) {
   console.log('searchbarInput: ', searchbarInput);
 
   const search = () => {
-    const filteredComments = props.comments.filter(
-      x => x.name.includes(searchbarInput)
-      // console.log()
+    let usersArray = props.comments.map(j =>
+      typeof j.name === 'string' ? j.name.toLowerCase() : null
     );
-    // commentsUserNames.filter(searchbarInput);
-    console.log('filteredComments', filteredComments);
+
+    let filteredComments = usersArray.filter(x => {
+      console.log(x.includes(searchbarInput));
+      if (x.includes(searchbarInput.toLowerCase())) {
+        return x;
+      } else return;
+    });
+
     props.setFilteredComments(filteredComments);
+
+    console.log('filteredComments', filteredComments);
   };
 
-  const handleInput = e => {
-    setSearchbarInput(e.target.value);
-
+  useEffect(() => {
     search();
-  };
+  }, [searchbarInput]);
 
   return (
     <nav
@@ -31,7 +36,7 @@ function Navbar(props) {
       <input
         style={{ marginTop: '.5em', height: '70%', width: '250px' }}
         type="search"
-        onChange={handleInput}
+        onChange={e => setSearchbarInput(e.target.value)}
         placeholder="search"
       />
     </nav>
