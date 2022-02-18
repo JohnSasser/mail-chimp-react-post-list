@@ -6,10 +6,18 @@
  margin-top: 1.5em
 }
 
+.col-md-7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .title-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    margin: .25em 1em 1em .25em;
 }
 
 @media screen and (max-width: 797px) {

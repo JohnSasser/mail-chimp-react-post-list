@@ -9,6 +9,7 @@ class Comment {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT,
       message TEXT,
+      image TEXT,
       created DATETIME DEFAULT CURRENT_TIMESTAMP)`;
     return this.dataAccessObject.run(sql);
   }

@@ -10,15 +10,6 @@
   flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media screen and (max-width: 796px) {
   #root-container {
     flex-direction: column;
